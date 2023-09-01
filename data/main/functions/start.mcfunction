@@ -8,7 +8,6 @@ scoreboard objectives add players dummy
 scoreboard objectives add sintyoku dummy
 scoreboard objectives add point dummy
 scoreboard objectives add setpoint dummy
-scoreboard objectives add taketime dummy
 scoreboard objectives add changetime dummy
 execute as @e[type=armor_stand,tag=hunter] run team join hunter @r[team=!hunter]
 team join escaper @a[team=!hunter]
@@ -32,6 +31,11 @@ tellraw @a[team=escaper] [{"text":"ハンターに殺される前にたくさん
 tellraw @a[team=hunter] [{"text":"進捗をクリアされる前に全員殺そう!!","bold":true}]
 bossbar add point "合計ポイント"
 execute store result bossbar point max run scoreboard players operation @e[type=armor_stand,tag=game] setpoint *= @e[type=armor_stand,tag=game] players
+scoreboard players set @e[type=armor_stand,tag=game] taketime 36000
 bossbar set point color yellow
 bossbar set point players @a
 scoreboard objectives setdisplay sidebar point
+bossbar add time "残り時間"
+execute store result bossbar time max run scoreboard players operation @e[type=armor_stand,tag=game] taketime *= @a[tag=op] taketime
+bossbar set time color blue
+bossbar set time players @a

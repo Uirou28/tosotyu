@@ -2,6 +2,7 @@ scoreboard objectives remove players
 scoreboard objectives remove sintyoku
 scoreboard objectives remove point
 scoreboard objectives remove setpoint
+scoreboard objectives remove changetime
 gamemode creative @a
 team remove escaper
 team remove hunter
