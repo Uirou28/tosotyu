@@ -1,0 +1,1 @@
+execute at @e[type=armor_stand,tag=game] run function main:ingame
