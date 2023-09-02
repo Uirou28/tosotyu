@@ -10,7 +10,6 @@ team add escaper
 scoreboard objectives add players dummy
 scoreboard objectives add sintyoku dummy
 scoreboard objectives add point dummy
-scoreboard objectives add setpoint dummy
 scoreboard objectives add changetime dummy
 scoreboard objectives add compasstime dummy
 scoreboard objectives add PosX dummy
@@ -23,7 +22,7 @@ team modify escaper color green
 team modify hunter color dark_gray
 team modify escaper nametagVisibility hideForOtherTeams
 summon armor_stand ~ ~30 ~ {NoGravity:1b,Invisible:1b,CustomName:'{"text":"合計ポイント","bold":true}',Tags:["game"],ActiveEffects:[{Id:11,Amplifier:5b,Duration:72000,ShowParticles:0b}]}
-scoreboard players set @e[type=armor_stand,tag=game] setpoint 20
+execute store result score @e[type=armor_stand,tag=game] setpoint run scoreboard players get @r[tag=op] setpoint
 tp @e[type=armor_stand,tag=hunter] ~ ~30 ~
 execute store success score @e[tag=game,type=armor_stand] players run give @a[team=escaper] diamond
 clear @a
