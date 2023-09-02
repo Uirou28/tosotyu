@@ -17,6 +17,7 @@ scoreboard objectives add PosY dummy
 scoreboard objectives add PosZ dummy
 scoreboard objectives add death deathCount
 execute as @e[type=armor_stand,tag=hunter] run team join hunter @r[team=!hunter]
+scoreboard players set @a players 0
 team join escaper @a[team=!hunter]
 team modify escaper color green
 team modify hunter color dark_gray
