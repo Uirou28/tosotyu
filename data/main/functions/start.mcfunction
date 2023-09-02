@@ -4,12 +4,11 @@ gamerule doDaylightCycle true
 gamerule doWeatherCycle false
 gamerule keepInventory false
 difficulty normal
-function main:load
 team add hunter
 team add escaper
 scoreboard objectives add players dummy
 scoreboard objectives add sintyoku dummy
-scoreboard objectives add point dummy
+scoreboard objectives add point dummy "ポイント"
 scoreboard objectives add changetime dummy
 scoreboard objectives add compasstime dummy
 scoreboard objectives add PosX dummy
@@ -20,19 +19,22 @@ execute as @e[type=armor_stand,tag=hunter] run team join hunter @r[team=!hunter]
 scoreboard players set @a players 0
 team join escaper @a[team=!hunter]
 team modify escaper color green
-team modify hunter color dark_gray
+team modify hunter color dark_red
 team modify escaper nametagVisibility hideForOtherTeams
-summon armor_stand ~ ~30 ~ {NoGravity:1b,Invisible:1b,CustomName:'{"text":"合計ポイント","bold":true}',Tags:["game"],ActiveEffects:[{Id:11,Amplifier:5b,Duration:72000,ShowParticles:0b}]}
+summon armor_stand ~ ~30 ~ {NoGravity:1b,Invisible:1b,Tags:["game"],ActiveEffects:[{Id:11,Amplifier:5b,Duration:72000,ShowParticles:0b}]}
 execute store result score @e[type=armor_stand,tag=game] setpoint run scoreboard players get @r[tag=op] setpoint
 tp @e[type=armor_stand,tag=hunter] ~ ~30 ~
-execute store success score @e[tag=game,type=armor_stand] players run give @a[team=escaper] diamond
+execute store success score @e[tag=game,type=armor_stand] players run give @a[team=escaper] air
 clear @a
+function main:book
 setworldspawn ~ ~ ~
 advancement revoke @a everything
 effect give @a[team=hunter] blindness 60 1 true
 effect give @a[team=hunter] slowness 60 8 true
 effect give @a[team=hunter] jump_boost 60 128 true
 effect give @a[team=hunter] resistance 60 5 true
+title @a[team=escaper] title "あなたは逃走者チームです"
+title @a[team=hunter] title "あなたはハンターチームです"
 tellraw @a [{"selector":"@a[team=hunter]"},{"text":"がハンターです","bold":true}]
 tellraw @a [{"text":"60秒の準備時間の後ハンターが放出されます","bold":true}]
 tellraw @a[team=escaper] [{"text":"ハンターに殺される前にたくさんの進捗をクリアしよう!!","bold":true}]

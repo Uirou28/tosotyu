@@ -1,2 +1,2 @@
 scoreboard players add @a[tag=op] setpoint 1
-tellraw @a[tag=op] [{"score":{"name":"@s","objective":"zanki"},"text":"機"}]
+tellraw @a [{"score":{"name":"@p[tag=op]","objective":"zanki"},"text":"機"}]
