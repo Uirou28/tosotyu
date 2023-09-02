@@ -16,6 +16,7 @@ scoreboard objectives add compasstime dummy
 scoreboard objectives add PosX dummy
 scoreboard objectives add PosY dummy
 scoreboard objectives add PosZ dummy
+scoreboard objectives add death deathCount
 execute as @e[type=armor_stand,tag=hunter] run team join hunter @r[team=!hunter]
 team join escaper @a[team=!hunter]
 team modify escaper color green
@@ -38,7 +39,7 @@ tellraw @a[team=escaper] [{"text":"ハンターに殺される前にたくさん
 tellraw @a[team=hunter] [{"text":"進捗をクリアされる前に全員殺そう!!","bold":true}]
 bossbar add point "合計ポイント"
 execute store result bossbar point max run scoreboard players operation @e[type=armor_stand,tag=game] setpoint *= @e[type=armor_stand,tag=game] players
-scoreboard players set @e[type=armor_stand,tag=game] taketime 36000
+scoreboard players set @e[type=armor_stand,tag=game] taketime 12000
 bossbar set point color yellow
 bossbar set point players @a
 bossbar set point style notched_20
@@ -49,3 +50,4 @@ bossbar set time color blue
 bossbar set time players @a
 bossbar set time style notched_10
 bossbar set time visible false
+scoreboard objectives setdisplay list zanki
