@@ -1,5 +1,8 @@
 gamemode survival @a
 effect clear @a
+gamerule doDaylightCycle true
+gamerule doWeatherCycle false
+gamerule keepInventory false
 difficulty normal
 function main:load
 team add hunter
@@ -9,6 +12,10 @@ scoreboard objectives add sintyoku dummy
 scoreboard objectives add point dummy
 scoreboard objectives add setpoint dummy
 scoreboard objectives add changetime dummy
+scoreboard objectives add compasstime dummy
+scoreboard objectives add PosX dummy
+scoreboard objectives add PosY dummy
+scoreboard objectives add PosZ dummy
 execute as @e[type=armor_stand,tag=hunter] run team join hunter @r[team=!hunter]
 team join escaper @a[team=!hunter]
 team modify escaper color green
@@ -34,8 +41,11 @@ execute store result bossbar point max run scoreboard players operation @e[type=
 scoreboard players set @e[type=armor_stand,tag=game] taketime 36000
 bossbar set point color yellow
 bossbar set point players @a
+bossbar set point style notched_20
 scoreboard objectives setdisplay sidebar point
 bossbar add time "残り時間"
 execute store result bossbar time max run scoreboard players operation @e[type=armor_stand,tag=game] taketime *= @a[tag=op] taketime
 bossbar set time color blue
 bossbar set time players @a
+bossbar set time style notched_10
+bossbar set time visible false
