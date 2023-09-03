@@ -51,7 +51,7 @@
     ]
   ],
   "rewards": {
-    "function": "main:getpoint1"
+    "function": "main:getpoint"
   },
   "sends_telemetry_event": true
 }

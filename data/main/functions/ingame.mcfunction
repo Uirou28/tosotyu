@@ -10,3 +10,4 @@ execute as @a[team=escaper] if score @s zanki = @s players run scoreboard player
 execute as @e[type=armor_stand,tag=game,scores={players=0}] run function victory:hunter
 scoreboard players set @a[tag=kansen,scores={zanki=..0}] zanki 1
 gamemode spectator @a[tag=kansen]
+function main:time

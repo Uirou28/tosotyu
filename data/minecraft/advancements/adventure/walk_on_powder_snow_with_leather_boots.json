@@ -50,7 +50,7 @@
       "walk_on_powder_snow_with_leather_boots"
     ]
   ],"rewards": {
-    "function": "main:getpoint1"
+    "function": "main:getpoint"
   },
   "sends_telemetry_event": true
 }

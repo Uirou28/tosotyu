@@ -53,7 +53,7 @@
       "lightning_rod_with_villager_no_fire"
     ]
   ],"rewards": {
-    "function": "main:getpoint1"
+    "function": "main:getpoint"
   },
   "sends_telemetry_event": true
 }
