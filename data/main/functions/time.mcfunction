@@ -8,5 +8,5 @@ execute as @e[type=armor_stand,tag=game,scores={changetime=600}] run bossbar set
 execute as @e[type=armor_stand,tag=game,scores={changetime=1200}] run bossbar set time visible false
 scoreboard players set @e[type=armor_stand,tag=game,scores={changetime=1200}] changetime 0
 execute as @e[type=armor_stand,tag=game,scores={compasstime=12000}] run function hunter:compass
-scoreboard players set @e[type=armor_stand,tag=game,scores={compasstime=12000}] compasstime 0
+scoreboard players set @e[type=armor_stand,tag=game,scores={compasstime=6000}] compasstime 0
 execute as @e[type=armor_stand,tag=game,scores={taketime=..0}] run function victory:hunter

@@ -11,3 +11,4 @@ execute as @e[type=armor_stand,tag=game,scores={players=0}] run function victory
 scoreboard players set @a[tag=kansen,scores={zanki=..0}] zanki 1
 gamemode spectator @a[tag=kansen]
 function main:time
+effect give @a[tag=!kansen] glowing 1 1 true
