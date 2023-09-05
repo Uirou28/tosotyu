@@ -53,4 +53,5 @@ bossbar set time color blue
 bossbar set time players @a
 bossbar set time style notched_10
 bossbar set time visible false
+execute store result score @a zanki run scoreboard players get @r[tag=op] zanki
 scoreboard objectives setdisplay list zanki
