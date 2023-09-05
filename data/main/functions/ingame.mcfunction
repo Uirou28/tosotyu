@@ -8,6 +8,7 @@ scoreboard players set @a[scores={death=1..},team=escaper] death 0
 tag @a[scores={zanki=..0},team=escaper] add kansen
 execute as @a[team=escaper] if score @s zanki = @s players run scoreboard players remove @e[type=armor_stand,tag=game] players 1
 execute as @e[type=armor_stand,tag=game,scores={players=0}] run function victory:hunter
+execute as @e[type=armor_stand,tag=game,scores={players=0}] run kill @e[type=armor_stand,tag=game]
 scoreboard players set @a[tag=kansen,scores={zanki=..0}] zanki 1
 gamemode spectator @a[tag=kansen]
 function main:time
